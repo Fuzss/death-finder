@@ -5,7 +5,7 @@ import fuzs.deathfinder.config.ServerConfig;
 import fuzs.deathfinder.init.ModRegistry;
 import fuzs.deathfinder.util.DeathMessageBuilder;
 import fuzs.deathfinder.util.DeathMessageSender;
-import fuzs.puzzleslib.api.event.v1.core.EventResult;
+import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.PacketSendListener;
 import net.minecraft.network.chat.Component;
@@ -15,15 +15,11 @@ import net.minecraft.network.protocol.game.ClientboundPlayerCombatKillPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.scores.Team;
-
-import java.util.function.BooleanSupplier;
-import java.util.function.Predicate;
 
 public class DeathMessageHandler {
 
@@ -88,28 +84,69 @@ public class DeathMessageHandler {
     private enum DeathMessageSource {
         // enum order matters
         // players should be handled differently (in regard to teams) even when allDeaths is active
-        PLAYER(() -> DeathFinder.CONFIG.get(ServerConfig.class).messages.allDeaths || DeathFinder.CONFIG.get(
-                ServerConfig.class).messages.playerDeaths,
-                (LivingEntity entity) -> entity instanceof ServerPlayer && !entity.isSpectator()),
-        ALL(() -> DeathFinder.CONFIG.get(ServerConfig.class).messages.allDeaths,
-                (LivingEntity entity) -> !entity.getType().is(ModRegistry.SILENT_DEATHS_ENTITY_TYPE_TAG)),
-        NAMED(() -> DeathFinder.CONFIG.get(ServerConfig.class).messages.namedEntityDeaths, Entity::hasCustomName),
-        VILLAGER(() -> DeathFinder.CONFIG.get(ServerConfig.class).messages.villagerDeaths,
-                (LivingEntity entity) -> entity instanceof Villager),
-        PET(() -> DeathFinder.CONFIG.get(ServerConfig.class).messages.petDeaths,
-                (LivingEntity entity) -> entity instanceof TamableAnimal animal
-                        && animal.getOwner() instanceof ServerPlayer);
+        PLAYER() {
+            @Override
+            boolean getConfigValue() {
+                return DeathFinder.CONFIG.get(ServerConfig.class).messages.allDeaths || DeathFinder.CONFIG.get(
+                        ServerConfig.class).messages.playerDeaths;
+            }
 
-        private final BooleanSupplier config;
-        private final Predicate<LivingEntity> predicate;
+            @Override
+            boolean isValidEntity(LivingEntity entity) {
+                return entity instanceof ServerPlayer && !entity.isSpectator();
+            }
+        },
+        ALL() {
+            @Override
+            boolean getConfigValue() {
+                return DeathFinder.CONFIG.get(ServerConfig.class).messages.allDeaths;
+            }
 
-        DeathMessageSource(BooleanSupplier config, Predicate<LivingEntity> predicate) {
-            this.config = config;
-            this.predicate = predicate;
-        }
+            @Override
+            boolean isValidEntity(LivingEntity entity) {
+                return !entity.is(ModRegistry.SILENT_DEATHS_ENTITY_TYPE_TAG);
+            }
+        },
+        NAMED() {
+            @Override
+            boolean getConfigValue() {
+                return DeathFinder.CONFIG.get(ServerConfig.class).messages.namedEntityDeaths;
+            }
 
-        public boolean test(LivingEntity livingEntity) {
-            return this.config.getAsBoolean() && this.predicate.test(livingEntity);
+            @Override
+            boolean isValidEntity(LivingEntity entity) {
+                return entity.hasCustomName();
+            }
+        },
+        VILLAGER() {
+            @Override
+            boolean getConfigValue() {
+                return DeathFinder.CONFIG.get(ServerConfig.class).messages.villagerDeaths;
+            }
+
+            @Override
+            boolean isValidEntity(LivingEntity entity) {
+                return entity instanceof Villager;
+            }
+        },
+        PET() {
+            @Override
+            boolean getConfigValue() {
+                return DeathFinder.CONFIG.get(ServerConfig.class).messages.petDeaths;
+            }
+
+            @Override
+            boolean isValidEntity(LivingEntity entity) {
+                return entity instanceof TamableAnimal animal && animal.getOwner() instanceof ServerPlayer;
+            }
+        };
+
+        abstract boolean getConfigValue();
+
+        abstract boolean isValidEntity(LivingEntity entity);
+
+        public boolean test(LivingEntity entity) {
+            return this.getConfigValue() && this.isValidEntity(entity);
         }
     }
 }

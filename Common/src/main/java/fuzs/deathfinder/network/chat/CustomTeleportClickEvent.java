@@ -67,7 +67,7 @@ public record CustomTeleportClickEvent(UUID uuid, GlobalPos position) {
                                                     .withPermission(LevelBasedPermissionSet.GAMEMASTER),
                                             clickEvent.getCommand());
                         }).ifLeft((TeleportToDeathProblem problem) -> {
-                            serverPlayer.displayClientMessage(problem.getComponent(), false);
+                            serverPlayer.sendSystemMessage(problem.getComponent(), false);
                         });
                     });
         }

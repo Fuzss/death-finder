@@ -2,10 +2,10 @@ package fuzs.deathfinder.client.handler;
 
 import fuzs.deathfinder.DeathFinder;
 import fuzs.deathfinder.config.ClientConfig;
-import fuzs.puzzleslib.api.event.v1.core.EventResultHolder;
+import fuzs.puzzleslib.common.api.event.v1.core.EventResultHolder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.DeathScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -17,12 +17,18 @@ public class DeathScreenHandler {
 
     private static BlockPos lastPlayerPosition = BlockPos.ZERO;
 
-    public static void onDrawScreen(DeathScreen screen, GuiGraphics guiGraphics, int mouseX, int mouseY, float tickDelta) {
-        if (!DeathFinder.CONFIG.get(ClientConfig.class).deathScreenCoordinates) return;
+    public static void onAfterExtract(DeathScreen screen, GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTick) {
+        if (!DeathFinder.CONFIG.get(ClientConfig.class).deathScreenCoordinates) {
+            return;
+        }
+
         if (lastPlayerPosition != BlockPos.ZERO) {
-            Component component = Component.translatable(KEY_DEATH_SCREEN_POSITION, Component.literal(String.valueOf(lastPlayerPosition.getX())).withStyle(ChatFormatting.WHITE), Component.literal(String.valueOf(lastPlayerPosition.getY())).withStyle(ChatFormatting.WHITE), Component.literal(String.valueOf(lastPlayerPosition.getZ())).withStyle(ChatFormatting.WHITE)).withStyle(ChatFormatting.GOLD);
-            Minecraft minecraft = Minecraft.getInstance();
-            guiGraphics.drawCenteredString(minecraft.font, component, screen.width / 2, 115, 16777215);
+            Component component = Component.translatable(KEY_DEATH_SCREEN_POSITION,
+                            Component.literal(String.valueOf(lastPlayerPosition.getX())).withStyle(ChatFormatting.WHITE),
+                            Component.literal(String.valueOf(lastPlayerPosition.getY())).withStyle(ChatFormatting.WHITE),
+                            Component.literal(String.valueOf(lastPlayerPosition.getZ())).withStyle(ChatFormatting.WHITE))
+                    .withStyle(ChatFormatting.GOLD);
+            guiGraphics.centeredText(screen.getFont(), component, screen.width / 2, 115, 16777215);
         }
     }
 
