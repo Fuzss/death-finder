@@ -1,7 +1,7 @@
-package fuzs.deathfinder.client.handler;
+package fuzs.deathfinder.common.client.handler;
 
-import fuzs.deathfinder.DeathFinder;
-import fuzs.deathfinder.config.ClientConfig;
+import fuzs.deathfinder.common.DeathFinder;
+import fuzs.deathfinder.common.config.ClientConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;

@@ -1,7 +1,7 @@
-package fuzs.deathfinder.init;
+package fuzs.deathfinder.common.init;
 
-import fuzs.deathfinder.DeathFinder;
-import fuzs.deathfinder.attachment.DeathTracker;
+import fuzs.deathfinder.common.DeathFinder;
+import fuzs.deathfinder.common.attachment.DeathTracker;
 import fuzs.puzzleslib.common.api.attachment.v4.DataAttachmentRegistry;
 import fuzs.puzzleslib.common.api.attachment.v4.DataAttachmentType;
 import fuzs.puzzleslib.common.api.init.v3.tags.TagFactory;

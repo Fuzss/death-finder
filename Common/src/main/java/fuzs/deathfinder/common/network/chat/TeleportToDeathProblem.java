@@ -1,4 +1,4 @@
-package fuzs.deathfinder.network.chat;
+package fuzs.deathfinder.common.network.chat;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.StringRepresentable;

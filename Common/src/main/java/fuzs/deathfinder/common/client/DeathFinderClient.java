@@ -1,7 +1,7 @@
-package fuzs.deathfinder.client;
+package fuzs.deathfinder.common.client;
 
-import fuzs.deathfinder.client.handler.CompassTooltipHandler;
-import fuzs.deathfinder.client.handler.DeathScreenHandler;
+import fuzs.deathfinder.common.client.handler.CompassTooltipHandler;
+import fuzs.deathfinder.common.client.handler.DeathScreenHandler;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.common.api.client.event.v1.gui.ItemTooltipCallback;
 import fuzs.puzzleslib.common.api.client.event.v1.gui.ScreenEvents;

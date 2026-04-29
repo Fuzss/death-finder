@@ -1,6 +1,6 @@
 package fuzs.deathfinder.fabric;
 
-import fuzs.deathfinder.DeathFinder;
+import fuzs.deathfinder.common.DeathFinder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import net.fabricmc.api.ModInitializer;
 

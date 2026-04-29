@@ -1,4 +1,4 @@
-package fuzs.deathfinder.mixin;
+package fuzs.deathfinder.common.mixin;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;

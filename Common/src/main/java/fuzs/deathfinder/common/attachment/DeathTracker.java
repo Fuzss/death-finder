@@ -1,9 +1,9 @@
-package fuzs.deathfinder.attachment;
+package fuzs.deathfinder.common.attachment;
 
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.deathfinder.network.chat.TeleportToDeathProblem;
+import fuzs.deathfinder.common.network.chat.TeleportToDeathProblem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;

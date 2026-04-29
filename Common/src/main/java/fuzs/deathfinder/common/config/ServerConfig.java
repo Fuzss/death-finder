@@ -1,4 +1,4 @@
-package fuzs.deathfinder.config;
+package fuzs.deathfinder.common.config;
 
 import fuzs.puzzleslib.common.api.config.v3.Config;
 import fuzs.puzzleslib.common.api.config.v3.ConfigCore;

@@ -1,8 +1,8 @@
 package fuzs.deathfinder.neoforge.client;
 
-import fuzs.deathfinder.DeathFinder;
-import fuzs.deathfinder.client.DeathFinderClient;
-import fuzs.deathfinder.data.client.ModLanguageProvider;
+import fuzs.deathfinder.common.DeathFinder;
+import fuzs.deathfinder.common.client.DeathFinderClient;
+import fuzs.deathfinder.common.data.client.ModLanguageProvider;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
 import net.neoforged.api.distmarker.Dist;

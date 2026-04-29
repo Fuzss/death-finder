@@ -1,6 +1,6 @@
-package fuzs.deathfinder.mixin;
+package fuzs.deathfinder.common.mixin;
 
-import fuzs.deathfinder.network.chat.CustomTeleportClickEvent;
+import fuzs.deathfinder.common.network.chat.CustomTeleportClickEvent;
 import net.minecraft.network.protocol.common.ServerboundCustomClickActionPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;

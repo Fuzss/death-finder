@@ -1,9 +1,9 @@
-package fuzs.deathfinder;
+package fuzs.deathfinder.common;
 
-import fuzs.deathfinder.config.ClientConfig;
-import fuzs.deathfinder.config.ServerConfig;
-import fuzs.deathfinder.handler.DeathMessageHandler;
-import fuzs.deathfinder.init.ModRegistry;
+import fuzs.deathfinder.common.config.ClientConfig;
+import fuzs.deathfinder.common.config.ServerConfig;
+import fuzs.deathfinder.common.handler.DeathMessageHandler;
+import fuzs.deathfinder.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.event.v1.entity.living.LivingDeathCallback;

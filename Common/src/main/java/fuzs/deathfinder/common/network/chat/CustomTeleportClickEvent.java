@@ -1,12 +1,12 @@
-package fuzs.deathfinder.network.chat;
+package fuzs.deathfinder.common.network.chat;
 
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.deathfinder.DeathFinder;
-import fuzs.deathfinder.attachment.DeathTracker;
-import fuzs.deathfinder.config.ServerConfig;
-import fuzs.deathfinder.init.ModRegistry;
+import fuzs.deathfinder.common.DeathFinder;
+import fuzs.deathfinder.common.attachment.DeathTracker;
+import fuzs.deathfinder.common.config.ServerConfig;
+import fuzs.deathfinder.common.init.ModRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;

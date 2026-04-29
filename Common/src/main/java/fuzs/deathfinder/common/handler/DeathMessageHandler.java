@@ -1,10 +1,10 @@
-package fuzs.deathfinder.handler;
+package fuzs.deathfinder.common.handler;
 
-import fuzs.deathfinder.DeathFinder;
-import fuzs.deathfinder.config.ServerConfig;
-import fuzs.deathfinder.init.ModRegistry;
-import fuzs.deathfinder.util.DeathMessageBuilder;
-import fuzs.deathfinder.util.DeathMessageSender;
+import fuzs.deathfinder.common.DeathFinder;
+import fuzs.deathfinder.common.config.ServerConfig;
+import fuzs.deathfinder.common.init.ModRegistry;
+import fuzs.deathfinder.common.util.DeathMessageBuilder;
+import fuzs.deathfinder.common.util.DeathMessageSender;
 import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.PacketSendListener;

@@ -1,8 +1,8 @@
-package fuzs.deathfinder.util;
+package fuzs.deathfinder.common.util;
 
-import fuzs.deathfinder.attachment.DeathTracker;
-import fuzs.deathfinder.init.ModRegistry;
-import fuzs.deathfinder.network.chat.CustomTeleportClickEvent;
+import fuzs.deathfinder.common.attachment.DeathTracker;
+import fuzs.deathfinder.common.init.ModRegistry;
+import fuzs.deathfinder.common.network.chat.CustomTeleportClickEvent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;

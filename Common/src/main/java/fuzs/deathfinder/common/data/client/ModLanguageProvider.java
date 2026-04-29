@@ -1,9 +1,9 @@
-package fuzs.deathfinder.data.client;
+package fuzs.deathfinder.common.data.client;
 
-import fuzs.deathfinder.client.handler.CompassTooltipHandler;
-import fuzs.deathfinder.client.handler.DeathScreenHandler;
-import fuzs.deathfinder.network.chat.TeleportToDeathProblem;
-import fuzs.deathfinder.util.DeathMessageBuilder;
+import fuzs.deathfinder.common.client.handler.CompassTooltipHandler;
+import fuzs.deathfinder.common.client.handler.DeathScreenHandler;
+import fuzs.deathfinder.common.network.chat.TeleportToDeathProblem;
+import fuzs.deathfinder.common.util.DeathMessageBuilder;
 import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 

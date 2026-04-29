@@ -1,4 +1,4 @@
-package fuzs.deathfinder.mixin;
+package fuzs.deathfinder.common.mixin;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.server.level.ServerPlayer;

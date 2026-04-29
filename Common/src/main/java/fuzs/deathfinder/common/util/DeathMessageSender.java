@@ -1,4 +1,4 @@
-package fuzs.deathfinder.util;
+package fuzs.deathfinder.common.util;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
