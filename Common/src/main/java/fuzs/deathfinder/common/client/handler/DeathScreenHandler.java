@@ -28,7 +28,7 @@ public class DeathScreenHandler {
                             Component.literal(String.valueOf(lastPlayerPosition.getY())).withStyle(ChatFormatting.WHITE),
                             Component.literal(String.valueOf(lastPlayerPosition.getZ())).withStyle(ChatFormatting.WHITE))
                     .withStyle(ChatFormatting.GOLD);
-            guiGraphics.centeredText(screen.getFont(), component, screen.width / 2, 115, 16777215);
+            guiGraphics.centeredText(screen.getFont(), component, screen.width / 2, 115, -1);
         }
     }
 
