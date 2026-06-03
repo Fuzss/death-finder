@@ -18,11 +18,18 @@ public class DeathScreenHandler {
     private static BlockPos lastPlayerPosition = BlockPos.ZERO;
 
     public static void onDrawScreen(DeathScreen screen, GuiGraphics guiGraphics, int mouseX, int mouseY, float tickDelta) {
-        if (!DeathFinder.CONFIG.get(ClientConfig.class).deathScreenCoordinates) return;
+        if (!DeathFinder.CONFIG.get(ClientConfig.class).deathScreenCoordinates) {
+            return;
+        }
+
         if (lastPlayerPosition != BlockPos.ZERO) {
-            Component component = Component.translatable(KEY_DEATH_SCREEN_POSITION, Component.literal(String.valueOf(lastPlayerPosition.getX())).withStyle(ChatFormatting.WHITE), Component.literal(String.valueOf(lastPlayerPosition.getY())).withStyle(ChatFormatting.WHITE), Component.literal(String.valueOf(lastPlayerPosition.getZ())).withStyle(ChatFormatting.WHITE)).withStyle(ChatFormatting.GOLD);
+            Component component = Component.translatable(KEY_DEATH_SCREEN_POSITION,
+                            Component.literal(String.valueOf(lastPlayerPosition.getX())).withStyle(ChatFormatting.WHITE),
+                            Component.literal(String.valueOf(lastPlayerPosition.getY())).withStyle(ChatFormatting.WHITE),
+                            Component.literal(String.valueOf(lastPlayerPosition.getZ())).withStyle(ChatFormatting.WHITE))
+                    .withStyle(ChatFormatting.GOLD);
             Minecraft minecraft = Minecraft.getInstance();
-            guiGraphics.drawCenteredString(minecraft.font, component, screen.width / 2, 115, 16777215);
+            guiGraphics.drawCenteredString(minecraft.font, component, screen.width / 2, 115, -1);
         }
     }
 

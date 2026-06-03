@@ -3,7 +3,7 @@
         "id": "deathfinder",
         "group": "fuzs.deathfinder",
         "name": "Death Finder",
-        "version": "21.11.0",
+        "version": "21.11.1",
         "authors": [
             "Fuzs"
         ],
@@ -36,13 +36,13 @@
     ],
     "links": [
         {
-            "name": "github",
-            "slug": "deathfinder"
-        },
-        {
             "name": "curseforge",
             "slug": "death-finder",
             "id": "327108"
+        },
+        {
+            "name": "github",
+            "slug": "deathfinder"
         },
         {
             "name": "modrinth",
