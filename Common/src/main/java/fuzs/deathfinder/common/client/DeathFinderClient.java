@@ -16,7 +16,7 @@ public class DeathFinderClient implements ClientModConstructor {
     }
 
     private static void registerHandlers() {
-        ScreenEvents.afterRender(DeathScreen.class).register(DeathScreenHandler::onAfterExtract);
+        ScreenEvents.afterExtract(DeathScreen.class).register(DeathScreenHandler::onAfterExtract);
         ScreenOpeningCallback.EVENT.register(DeathScreenHandler::onScreenOpening);
         ItemTooltipCallback.EVENT.register(CompassTooltipHandler::onItemTooltip);
     }

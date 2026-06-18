@@ -6,6 +6,7 @@ import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypeIds;
 
 public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>> {
 
@@ -15,6 +16,6 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        this.tag(ModRegistry.SILENT_DEATHS_ENTITY_TYPE_TAG).add(EntityType.GLOW_SQUID, EntityType.BAT);
+        this.tag(ModRegistry.SILENT_DEATHS_ENTITY_TYPE_TAG).add(EntityTypeIds.GLOW_SQUID, EntityTypeIds.BAT);
     }
 }
