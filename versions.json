@@ -6,11 +6,17 @@
     "26.1.x": "maintained",
     "26.2.x": "primary"
   },
-  "properties": {
-    "distributions.curseforge.id": "327108",
-    "distributions.curseforge.slug": "death-finder",
-    "distributions.github.slug": "death-finder",
-    "distributions.modrinth.id": "wNxIBREV",
-    "distributions.modrinth.slug": "death-finder"
+  "distributions": {
+    "curseforge": {
+      "id": "327108",
+      "slug": "death-finder"
+    },
+    "github": {
+      "slug": "death-finder"
+    },
+    "modrinth": {
+      "id": "wNxIBREV",
+      "slug": "death-finder"
+    }
   }
 }
