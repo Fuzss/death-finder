@@ -1,6 +1,6 @@
 package fuzs.deathfinder.util;
 
-import fuzs.deathfinder.capability.MessageSenderCapability;
+import fuzs.deathfinder.handler.DeathMessageHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
@@ -55,7 +55,7 @@ public class DeathMessageSender {
     }
 
     private void sendToAll(DeathMessageBuilder builder, Stream<ServerPlayer> players) {
-        players.forEach((ServerPlayer player) -> MessageSenderCapability
+        players.forEach((ServerPlayer player) -> DeathMessageHandler
                 .sendSystemMessage(player, builder.build(player), false));
     }
 

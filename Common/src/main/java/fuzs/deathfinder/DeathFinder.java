@@ -6,7 +6,6 @@ import fuzs.deathfinder.handler.DeathMessageHandler;
 import fuzs.deathfinder.init.ModRegistry;
 import fuzs.deathfinder.network.ClientboundAdvancedSystemChatMessage;
 import fuzs.deathfinder.network.client.C2SDeathPointTeleportMessage;
-import fuzs.deathfinder.network.client.ServerboundNotifyModPresentMessage;
 import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -25,15 +24,14 @@ public class DeathFinder implements ModConstructor {
             .registerSerializer(ClientboundAdvancedSystemChatMessage.class,
                     ClientboundAdvancedSystemChatMessage.STREAM_CODEC)
             .registerClientbound(ClientboundAdvancedSystemChatMessage.class)
-            .registerLegacyServerbound(C2SDeathPointTeleportMessage.class, C2SDeathPointTeleportMessage::new)
-            .registerServerbound(ServerboundNotifyModPresentMessage.class);
+            .registerLegacyServerbound(C2SDeathPointTeleportMessage.class, C2SDeathPointTeleportMessage::new);
     public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID)
             .client(ClientConfig.class)
             .server(ServerConfig.class);
 
     @Override
     public void onConstructMod() {
-        ModRegistry.touch();
+        ModRegistry.bootstrap();
         registerEventHandlers();
     }
 

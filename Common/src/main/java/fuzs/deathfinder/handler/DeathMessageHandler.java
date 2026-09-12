@@ -1,12 +1,14 @@
 package fuzs.deathfinder.handler;
 
 import fuzs.deathfinder.DeathFinder;
-import fuzs.deathfinder.capability.MessageSenderCapability;
 import fuzs.deathfinder.config.ServerConfig;
 import fuzs.deathfinder.init.ModRegistry;
+import fuzs.deathfinder.network.ClientboundAdvancedSystemChatMessage;
 import fuzs.deathfinder.util.DeathMessageBuilder;
 import fuzs.deathfinder.util.DeathMessageSender;
 import fuzs.puzzleslib.api.event.v1.core.EventResult;
+import fuzs.puzzleslib.api.network.v3.PlayerSet;
+import fuzs.puzzleslib.api.network.v4.NetworkingHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.PacketSendListener;
 import net.minecraft.network.chat.Component;
@@ -41,7 +43,7 @@ public class DeathMessageHandler {
                             handlePlayer((ServerPlayer) entity, builder, DeathMessageSender.from(entity.getServer()));
                     case PET -> {
                         if (((TamableAnimal) entity).getOwner() instanceof ServerPlayer player)
-                            MessageSenderCapability.sendSystemMessage(player, builder.build(player), false);
+                            sendSystemMessage(player, builder.build(player), false);
                     }
                     case VILLAGER -> DeathMessageSender.from(entity.getServer()).sendToAll(builder, false);
                     default -> DeathMessageSender.from(entity.getServer()).sendToAll(builder);
@@ -78,6 +80,15 @@ public class DeathMessageHandler {
             }
         } else {
             sender.sendToAll(builder);
+        }
+    }
+
+    public static void sendSystemMessage(ServerPlayer player, Component component, boolean bypassHiddenChat) {
+        if (NetworkingHelper.isModPresentClientside(player, DeathFinder.MOD_ID)) {
+            DeathFinder.NETWORK.sendMessage(PlayerSet.ofPlayer(player),
+                    new ClientboundAdvancedSystemChatMessage(component, bypassHiddenChat));
+        } else {
+            player.sendSystemMessage(component, bypassHiddenChat);
         }
     }
 
