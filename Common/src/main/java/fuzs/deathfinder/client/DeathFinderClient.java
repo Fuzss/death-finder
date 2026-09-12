@@ -4,7 +4,6 @@ import fuzs.deathfinder.client.handler.CompassTooltipHandler;
 import fuzs.deathfinder.client.handler.DeathCommandHandler;
 import fuzs.deathfinder.client.handler.DeathScreenHandler;
 import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.event.v1.entity.player.ClientPlayerNetworkEvents;
 import fuzs.puzzleslib.api.client.event.v1.gui.ItemTooltipCallback;
 import fuzs.puzzleslib.api.client.event.v1.gui.ScreenEvents;
 import fuzs.puzzleslib.api.client.event.v1.gui.ScreenMouseEvents;
@@ -24,6 +23,5 @@ public class DeathFinderClient implements ClientModConstructor {
         ScreenMouseEvents.beforeMouseClick(ChatScreen.class).register(DeathCommandHandler::onMouseClicked);
         ScreenOpeningCallback.EVENT.register(DeathScreenHandler::onScreenOpen);
         ItemTooltipCallback.EVENT.register(CompassTooltipHandler::onItemTooltip);
-        ClientPlayerNetworkEvents.LOGGED_IN.register(DeathCommandHandler::onLoggedIn);
     }
 }
