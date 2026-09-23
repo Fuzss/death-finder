@@ -1,14 +1,14 @@
 package fuzs.deathfinder.common.data.tags;
 
 import fuzs.deathfinder.common.init.ModRegistry;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
+import fuzs.puzzleslib.common.api.data.v3.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v3.tags.AbstractTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypeIds;
 
-public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>> {
+public class ModEntityTypeTagProvider extends AbstractTagsProvider<EntityType<?>> {
 
     public ModEntityTypeTagProvider(DataProviderContext context) {
         super(Registries.ENTITY_TYPE, context);

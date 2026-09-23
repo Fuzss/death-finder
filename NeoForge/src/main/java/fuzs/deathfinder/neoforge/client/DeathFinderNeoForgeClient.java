@@ -4,7 +4,7 @@ import fuzs.deathfinder.common.DeathFinder;
 import fuzs.deathfinder.common.client.DeathFinderClient;
 import fuzs.deathfinder.common.data.client.ModLanguageProvider;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
+import fuzs.puzzleslib.neoforge.api.data.v3.core.DataProviderBuilder;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 
@@ -13,6 +13,6 @@ public class DeathFinderNeoForgeClient {
 
     public DeathFinderNeoForgeClient() {
         ClientModConstructor.construct(DeathFinder.MOD_ID, DeathFinderClient::new);
-        DataProviderHelper.registerDataProviders(DeathFinder.MOD_ID, ModLanguageProvider::new);
+        DataProviderBuilder.of(DeathFinder.MOD_ID).addProvider(ModLanguageProvider::new);
     }
 }
